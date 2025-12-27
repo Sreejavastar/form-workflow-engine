@@ -25,5 +25,7 @@ User refreshes → data lost
 API fails → UI stuck
 Step order changes → code breaks
 
+<img width="536" height="300" alt="image" src="https://github.com/user-attachments/assets/a5e89b95-f3f9-49f9-9a14-c88ccb701694" />
+
+
 Lets Solve this problem. Shall we?
-![alt text](image.png)
