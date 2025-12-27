@@ -1,77 +1,29 @@
 I am building a config-driven multi-step form workflow engine that demonstrates frontend system thinking: state machines, async validation, failure handling, and scalability.
 <img width="1292" height="769" alt="image" src="https://github.com/user-attachments/assets/de3ca3f0-5e45-4b0c-9066-df7ae7a55ad2" />
 
+Big Picture: What are we actually building?
 
-# React + TypeScript + Vite
+We are NOT building:
+->a form
+->a simple React app
+We are building a Frontend Workflow Engine.
+That means:
+A reusable system that can run any multi-step process (onboarding, loan application, signup, survey) without rewriting logic.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The UI is just a viewer.
+The engine is the brain.🧠
 
-Currently, two official plugins are available:
+The core problem we are solving (real-world)
+In real companies, forms fail because:
+i. State is scattered
+ii. Validation is inconsistent
+iii. Edge cases break flows
+iv. Changes are risky
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Example failure:
+User refreshes → data lost
+API fails → UI stuck
+Step order changes → code breaks
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Lets Solve this problem. Shall we?
+![alt text](image.png)
