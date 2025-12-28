@@ -39,17 +39,21 @@ What a step looks like
 What a field looks like
 👉 This is types.ts
 
+
 ⚙️ Layer 2 — State Machine (HOW it behaves)
 Defines:
 Which state can go to which
 What happens on NEXT / ERROR / RETRY
 👉 This is stateMachine.ts
+
+
 🧩 Layer 3 — Engine (WHO controls the flow)
 Defines:
 When validation runs
 When state updates
 When data is saved
 👉 This is engine.ts
+
 
 🔌 Layer 4 — Hook (HOW UI talks to system)
 Defines:
