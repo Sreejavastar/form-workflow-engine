@@ -1,9 +1,12 @@
 import type { StepConfig, ValidationResult } from "./types";
 
-export function validateStep(
+export async function validateStepAsync(
   step: StepConfig,
   data: Record<string, unknown>
-): ValidationResult {
+): Promise<ValidationResult> {
+  // simulate network delay
+  await new Promise((res) => setTimeout(res, 800));
+
   for (const field of step.fields) {
     if (field.required) {
       const value = data[field.id];
@@ -13,6 +16,14 @@ export function validateStep(
           message: `${field.label} is required`,
         };
       }
+    }
+
+    // fake backend rule
+    if (field.id === "email" && data[field.id] === "test@test.com") {
+      return {
+        valid: false,
+        message: "Email already exists",
+      };
     }
   }
 

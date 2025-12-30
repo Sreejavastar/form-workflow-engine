@@ -15,6 +15,8 @@ function App() {
     <div>
       <StepRenderer step={currentStep} onChange={updateField} />
 
+      {state.status === WorkflowStatus.VALIDATING && <p>Validating...</p>}
+
       {state.status === WorkflowStatus.ERROR && (
         <div>
           <p>{state.error}</p>
