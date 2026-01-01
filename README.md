@@ -58,8 +58,13 @@ When data is saved
 🔌 Layer 4 — Hook (HOW UI talks to system)
 Defines:
 Simple API for components
-Hide complexity
-👉 This is useWorkflow.t
 
-🎨 Layer 5 — UI (HOW it looks)
-Pure rendering
+
+We then move to next feature of this Form Engine Flow, i.e "RESTORE FROM SAVED STATE".
+🎯 Goal : Refresh the page → workflow resumes exactly where it left off.
+useWorkflow.ts (It owns state)
+It already mediates UI ↔ engine
+
+Persistence is a state concern, not UI or engine
+Hide complexity
+Post this, there will be Pure rendering
